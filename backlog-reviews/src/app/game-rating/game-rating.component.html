@@ -1,0 +1,33 @@
+<div id="rating-stars">
+    <h4 id="numerical-rating">{{ gameRating ? gameRating.rating : '0' }}/5</h4>
+    <div *ngFor="let item of [].constructor(5); let i = index;">
+        <div *ngIf="gameRating && !isChanging && 5-i <= gameRating.rating; else emptyRating"
+            class="star" ></div>
+        <ng-template #emptyRating>
+            <div class="empty-star"
+                *ngIf="isChanging || !gameRating; else emptyRatingNoHover"
+                (click)="submitRating(5-i)"></div>
+        </ng-template>
+        <ng-template #emptyRatingNoHover>
+            <div class="empty-star-no-hover"></div>
+        </ng-template>
+    </div>
+</div>
+<div *ngIf="!gameRating; else changeButton">
+    You have no ratings for this game yet.
+</div>
+<ng-template #changeButton>
+    <button 
+        *ngIf="!isChanging; else cancel"
+        class="btn btn-primary btn-sm"
+        (click)="changeRating()">
+            Change
+    </button>
+    <ng-template #cancel>
+        <button
+            class="btn btn-secondary btn-sm"
+            (click)="cancelChange()">
+                Cancel
+        </button>
+    </ng-template>
+</ng-template>

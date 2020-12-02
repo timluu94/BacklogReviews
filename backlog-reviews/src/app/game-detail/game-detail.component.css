@@ -1,0 +1,50 @@
+app-game-rating {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+app-game-review {
+    flex-grow: 3;
+}
+
+#detail-title {
+    font-family: 'Open Sans', sans-serif;
+    grid-area: header;
+    place-self: center;
+}
+
+#detail-img {
+    grid-area: content;
+    place-self: center;
+}
+
+#detail-ratings {
+    align-self: center;
+}
+
+#detail-info {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#detail-info-main {
+    flex-grow: 4;
+}
+
+#detail-body {
+    display: grid;
+    grid-template-columns: 5% 1fr 5% 2fr 5%;
+    grid-template-rows: 20% 5% 75%;
+    grid-template-areas: 
+        ". header header header ."
+        ". . . . ."
+        ". content content main .";
+}
+
+h6 { 
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+}

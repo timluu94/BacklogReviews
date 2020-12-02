@@ -1,0 +1,28 @@
+<div id="review-body">
+    <div id="review-editor" *ngIf="editorModeOn; else reviewDisplay">
+        <h6> Write your review:</h6>
+        <textarea #gameReviewText 
+            class="form-control"
+            rows="3"
+            placeholder="What're your thoughts?"
+            [value]="gameReview ? gameReview.review : ''">
+        </textarea>
+        <div>
+            <button class="btn btn-primary" (click)="submitReview(gameReviewText.value)">
+                Submit
+            </button>
+            <button *ngIf="gameReview"
+                class="btn btn-secondary" (click)="toggleEditorModeOff()">
+                Cancel
+            </button>
+        </div>
+    </div>
+    <ng-template #reviewDisplay>
+        <h6>My Review:</h6>
+        <div id="review-display">
+            {{ gameReview.review }}
+        </div>
+        <button class="btn btn-primary btn-sm" (click)="toggleEditorModeOn()">Edit</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteReview()">Delete</button>
+    </ng-template>
+</div>

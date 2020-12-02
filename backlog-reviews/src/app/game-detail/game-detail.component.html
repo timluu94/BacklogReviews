@@ -1,0 +1,12 @@
+<div id="detail-body" *ngIf="game">
+    <h2 id="detail-title">{{ game.name }}</h2>
+    <img id="detail-img" [src]="'data:image/jpg;base64,' + game.imageData" width="264" height="374">
+    <div id="detail-info">
+        <div id="detail-info-main">
+            <h6>Summary:</h6>
+            <div>{{ game.summary }}</div>
+        </div>
+        <app-game-rating id="detail-ratings" [gameId]="game.id"></app-game-rating>
+        <app-game-review [gameId]="game.id"></app-game-review>
+    </div>
+</div>

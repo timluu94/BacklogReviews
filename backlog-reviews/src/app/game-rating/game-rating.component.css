@@ -1,0 +1,30 @@
+#rating-stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+button {
+    align-self: center;
+}
+
+#numerical-rating {
+    margin: 0 20px;
+}
+
+.star {
+    content: url("../../assets/star_fill.png")
+}
+
+.empty-star, .empty-star-no-hover {
+    content: url("../../assets/star.png");
+}
+
+.star, .empty-star, .empty-star-no-hover {
+    height: 25px;
+    width: 25px;
+}
+
+div:hover ~ div > div.empty-star, div > .empty-star:hover {
+    content: url("../../assets/star_fill.png");
+}

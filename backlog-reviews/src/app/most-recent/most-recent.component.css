@@ -1,0 +1,63 @@
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h4 {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+h4, h6 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.middle {
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#recent-games-title-0, #recent-games-title-1, #recent-games-title-2 {
+    grid-area: title;
+    place-self: center;
+}
+
+#recent-games-image-0, #recent-games-image-1, #recent-games-image-2 {
+    grid-area: image;
+    place-self: start center;
+}
+
+#recent-games {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 30% 30% 30%;
+}
+
+.recent-games-item {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 100%;
+    grid-template-rows: 25% 250px;
+    grid-template-areas:
+        "title"
+        "image";
+}
+
+.recent-games-item:hover {
+    background-color: lightblue;
+}
+
+.loader {
+    margin: 40px auto;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

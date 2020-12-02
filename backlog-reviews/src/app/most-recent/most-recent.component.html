@@ -1,0 +1,22 @@
+<div>
+    <h4>Most Recently Rated Titles</h4>
+    <div *ngIf="!isLoading; else loadingRecent" id="recent-games">
+        <a [routerLink]="['/game', game.id]" 
+            [state]="{ game: game }"
+            *ngFor="let game of games; index as i" 
+            class="recent-games-item {{ i === 1 ? 'middle' : '' }}"
+        >
+            <h6 id="recent-games-title-{{ i }}">
+                {{ game.name }}
+            </h6>
+            <div id="recent-games-image-{{ i }}">
+                <img [src]="'data:image/jpg;base64,' + game.imageData" 
+                    width="132"
+                    height="187">
+            </div>
+        </a>
+    </div>
+    <ng-template #loadingRecent>
+        <div class="loader"></div>
+    </ng-template>
+</div>

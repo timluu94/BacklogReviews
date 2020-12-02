@@ -1,0 +1,16 @@
+#review-editor {
+    display: flex;
+    flex-direction: column;
+}
+
+#review-display {
+    height: 75px;
+    margin: 5px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid black;
+}
+
+h6 { 
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+}

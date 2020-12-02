@@ -1,0 +1,35 @@
+<div id="search-body">
+    <div id="search-form">
+        <input #gameTitle
+            class="form-control" 
+            placeholder="Enter a game to search"/>
+        <button 
+            class="btn btn-outline-primary"
+            (click)="search(gameTitle.value, 1); gameTitle.placeholder=''">
+            Search
+        </button>
+    </div>
+    <ul id="search-result-list" *ngIf="games !== null; else loading">
+        <ng-container *ngIf="games === undefined || games.length > 0; else noResults">
+            <li class="search-result-item" *ngFor="let game of games">
+                <a class="search-result" [routerLink]="['/game', game.id]" [state]="{ game: game }">
+                    <img class="search-result-image"
+                        [src]="'data:image/jpg;base64,' + game.imageData" 
+                        width="132"
+                        height="187">
+                    <h3 class="search-result-title">{{ game.name }}</h3>
+                </a>   
+            </li>
+        </ng-container>
+        <ng-template #noResults>It appears we were unable to find what you were searching for.</ng-template> 
+    </ul>
+    <ng-template #loading ><div class="loader"></div></ng-template>
+    <nav *ngIf="shouldDisplayPagination()">
+        <ul class="pagination">
+            <li class="page-item {{ page > 1 ? '' : 'disabled' }}"><a (click)="goToPrevPage()" class="page-link">Previous</a></li>
+            <li class="page-item disabled"><a class="page-link">{{ page }}</a></li>
+            <li class="page-item {{ canGoToNext ? '' : 'disabled' }}"><a (click)="goToNextPage()"class="page-link">Next</a></li>
+        </ul>
+    </nav>
+</div>
+<app-most-recent></app-most-recent>
